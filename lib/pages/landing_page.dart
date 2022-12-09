@@ -6,9 +6,6 @@ import 'package:theme_bloc/presentation/theme/bloc/theme_bloc.dart';
 import '../presentation/theme/app_themes.dart';
 import '../presentation/theme/bloc/theme_event.dart';
 
-import '../presentation/toggle/bloc/toggle_bloc.dart';
-import '../presentation/toggle/bloc/toggle_event.dart';
-
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
 
@@ -17,14 +14,10 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  var _value = true;
-
-  var status = 'on';
-
   @override
   Widget build(BuildContext context) {
     final themeBloc = BlocProvider.of<ThemeBloc>(context);
-    final toggleBloc = BlocProvider.of<ToggleBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
@@ -51,7 +44,6 @@ class _LandingPageState extends State<LandingPage> {
               color: Colors.white,
               onPressed: () {
                 themeBloc.add(Light());
-                toggleBloc.add(Taggled());
               },
               child: const Text(
                 'Light',
@@ -62,7 +54,6 @@ class _LandingPageState extends State<LandingPage> {
               color: Colors.black,
               onPressed: () {
                 themeBloc.add(Dark());
-                toggleBloc.add(Untaggled());
               },
               child: const Text(
                 'Dark',

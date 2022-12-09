@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:theme_bloc/pages/landing_page.dart';
 import 'package:theme_bloc/presentation/theme/bloc/theme_bloc.dart';
 import 'package:theme_bloc/presentation/theme/bloc/theme_state.dart';
-import 'package:theme_bloc/presentation/toggle/bloc/toggle_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,9 +19,6 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: ((context) => ThemeBloc()),
-        ),
-        BlocProvider(
-          create: ((context) => ToggleBloc()),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
